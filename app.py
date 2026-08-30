@@ -112,16 +112,15 @@ def hello():
 
     name = request.args.get("name")
 
-    # INTENTIONALLY VULNERABLE
-    template = f"""
+    template = """
         <html>
             <body>
-                <h1>Hello {name}</h1>
+                <h1>Hello {{ name }}</h1>
             </body>
         </html>
     """
 
-    return render_template_string(template)
+    return render_template_string(template, name=name)
 
 
 # ---------------------------------------------------------
