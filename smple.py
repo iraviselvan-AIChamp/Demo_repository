@@ -39,7 +39,8 @@ def get_user():
     cursor = conn.cursor()
 
     cursor.execute(
-        f"SELECT name FROM user WHERE id = {user_id}"
+        "SELECT name FROM user WHERE id = ?",
+        (user_id,)
     )
 
     user = cursor.fetchone()
